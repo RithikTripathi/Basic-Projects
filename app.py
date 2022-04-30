@@ -7,7 +7,8 @@ from urllib.request import urlopen as uReq
 app = Flask(__name__)
 
 @app.route('/',methods=['GET'])  # route to display the home page
-@cross_origin()
+@cross_origin() # not req. for local system use, used for cross platform use / cloud deployement
+# when we deploy this on cloud, if someone is accessing this from usa, or other places, without this, we wont be able to access it
 def homePage():
     return render_template("index.html")
 
